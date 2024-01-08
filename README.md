@@ -38,6 +38,12 @@ D2_S11 1404672 <br />
 F3_S18 1615053 <br />
 It will extract the sample code (the first two characters).<br /> <br />
 
+***Note:*** **If for some reason the sequencer outputted fastq/fastq.gz files with the wrong labels, (if the sample names are wrong) and you wish to swap them according to a specific correspondence, please fill a file called "correspondence.txt" with the following format**:
+original_sample_code desired_sample_code<br />
+**Example:**<br />
+A1_S1 C2_S3<br />
+D2_S11 F1_S9<br />
+F3_S18 H9_S5<br />
 
 ### 4.1 Create 2 folders for each type of samples (pools and replicates):
 #### &ensp; 4.1.1 Folder called "pool_results"
