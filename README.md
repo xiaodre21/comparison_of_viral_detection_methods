@@ -1,10 +1,42 @@
-# Read me
+# Viral detection in wastewaters: comparison of bioinformatic tools for virome analysis
+## Read me
 
-## Viral detection in wastewaters: comparison of bioinformatic tools for virome analysis
+### Dependencies
+
+This project requires the following Python packages:
+
+- `os` (standard library)
+- `random` (standard library)
+- `networkx`
+- `requests`
+- `pandas`
+- `ete3`
+- `re` (standard library)
+- `warnings` (standard library)
+- `gzip` (standard library)
+- `biopython` (for `Bio.SeqIO`)
+- `numpy`
+
+
+### Installation
+
+You can install the required packages using `pip`. It is recommended to use a virtual environment to manage your dependencies.
+
+### Using pip
+
+```bash
+pip install networkx requests pandas ete3 biopython numpy
+```
+<br />
+
+# Description
 
 This script envolves all the steps from start (getting the original reports from each software) to finish
 (producing the heatmaps).
-We only care about non-phage viruses.
+
+
+
+
 
 ## Workflow of the script:
 1. Get viral percent for excel sheet; each sheet will be for a software.
