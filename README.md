@@ -104,12 +104,7 @@ python script_name_to_decide.py --update_ncbi True --filter_warnings True --tax_
 - utils
 - metadata_table.xlsx
 
-### 7 - After you've ran the script, 2 files will be created:
-- script_results
-- latest_virus_taxonomy.xlsx
-
-
-### 8 - The analysis folder should look like:
+### 7 - After you've ran the script the analysis folder should look like:
 - fastq.gz
 - main
 - pool_results
