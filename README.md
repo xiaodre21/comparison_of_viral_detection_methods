@@ -39,23 +39,44 @@ This script envolves all the steps from start (getting the original reports from
 
 
 ## Workflow of the script:
-1. Get viral percent for excel sheet; each sheet will be for a software.
-2. Get the viral details (number of reads, viral percent, etc).
-3. Get full taxonomy for each indentification.
-4. Grouping everything in one and formatting it accordingly for an excel file for for R plotting.
+**1. Raw Reads:**<br />
+- Read and count the raw reads from all fastq.gz files.
 
+**2. Taxonomy Data:**<br />
+- Update and download necessary taxonomy databases.
 
-It was created in a way such that you should follow the following rules 
-in order for it to work correctly.
+**3. Reports Processing:**<br />
+- Read, store, and ensure completeness of all reports from various software tools.<br />
+- Filter out invalid data.
 
-## Steps:
-### 1 - Create a folder for the analysis (e.g. metagenomic_analysis_01_01_2023)
+**4. Taxonomy Enrichment:**<br />
+- Add detailed taxonomy information to each sample.
 
-### 2.1 - Place the script (from_start_to_finish_all_reports_to_ready_for_heatmap.py) into that folder.
+**5. Pathogen Identification:**<br />
+- Identify and flag potentially pathogenic genera in the samples.
 
-### 2.2 - Download the folder "filtering_phages" present in the GitHub rep and place it inside the folder of the analysis.
+**6. Data Merging:**<br />
+- Combine data from all samples into a format suitable for R analysis.
 
-### 3 - Create an text file called "pool_samples_reads.txt" and a file called "rep_samples_reads.txt", each file should contain the information for the raw number of reads of each sample with the following sctructure:
+**7. Host Source and Classification:**<br />
+- Enrich the data with host source information and classification levels.
+
+**8. Summary and OTU Tables:**<br />
+- Create summary tables and OTU tables for further analysis and reporting.
+
+**9. Output Writing:**<br />
+- Save the processed data and tables to Excel files.
+<br />
+
+## It was created in a way such that you should follow the following steps in order for it to work correctly.
+
+#### 1 - Create a folder for the analysis (e.g. metagenomic_analysis_01_01_2023)
+
+#### 2.1 - Place the script (place_to_decide.py) into that folder.
+
+#### 2.2 - Download the folder "filtering_phages" present in the GitHub rep and place it inside the folder of the analysis.
+
+#### 3 - Create an text file called "pool_samples_reads.txt" and a file called "rep_samples_reads.txt", each file should contain the information for the raw number of reads of each sample with the following sctructure:
 
 <sample filename> <number of raw reads>
 
