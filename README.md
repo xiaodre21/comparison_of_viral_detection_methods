@@ -11,11 +11,9 @@ This project requires the following Python packages:
 - `requests`
 - `pandas`
 - `ete3`
-- `re` (standard library)
 - `warnings` (standard library)
 - `gzip` (standard library)
-- `biopython` (for `Bio.SeqIO`)
-- `numpy`
+- `numpy` (standard library)
 
 
 ### Installation
@@ -109,9 +107,9 @@ python script_name_to_decide.py --update_ncbi True --filter_warnings True --tax_
 - main
 - pool_results
 - rep_results
-- script_results
+- script_results (new)
 - utils
-- latest_virus_taxonomy.xlsx
+- latest_virus_taxonomy.xlsx (new)
 - metadata_table.xlsx
 
 
