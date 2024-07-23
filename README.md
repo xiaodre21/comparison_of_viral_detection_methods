@@ -31,8 +31,7 @@ pip install networkx requests pandas ete3 biopython numpy
 
 # Description
 
-This script envolves all the steps from start (getting the original reports from each software) to finish
-(producing the heatmaps).
+This script envolves all the steps from start 
 
 
 
@@ -70,77 +69,54 @@ This script envolves all the steps from start (getting the original reports from
 
 ## It was created in a way such that you should follow the following steps in order for it to work correctly.
 
-#### 1 - Create a folder for the analysis (e.g. metagenomic_analysis_01_01_2023)
+#### 1 - Download the template analysis folder "metagenomic_analysis" from this repository.
 
-#### 2.1 - Place the script (place_to_decide.py) into that folder.
+#### 2 - Open the "metadata_table.xlsx" and fill it accordingly. The file contains instructions.
 
-#### 2.2 - Download the folder "filtering_phages" present in the GitHub rep and place it inside the folder of the analysis.
+#### 3 - Open the fastq.gz folder:
+- For pooled sequencing files, place them onto the "pools" folders
+- For replicate sequencing files, place them onto the "replicates" folders
 
-#### 3 - Create an text file called "pool_samples_reads.txt" and a file called "rep_samples_reads.txt", each file should contain the information for the raw number of reads of each sample with the following sctructure:
+#### 4.1 - Open the pool_results folder and navegate the different software folders:
+- CZ.ID reports for pool samples should be put inside the folder "reports_czid"
+- GenomeDetective reports for pool samples should be put inside the folder "reports_gd"
+- INSaFLU reports for pool samples should be put inside the folder "reports_insaflu"
+- Kraken2 reports for pool samples should be put inside the folder "reports_kraken2"
 
-<sample filename> <number of raw reads>
+#### 4.2 - Open the rep_results folder and navegate the different software folders:
+- CZ.ID reports for replicate samples should be put inside the folder "reports_czid"
+- GenomeDetective reports for replicate samples should be put inside the folder "reports_gd"
+- INSaFLU reports for replicate samples should be put inside the folder "reports_insaflu"
+- Kraken2 reports for replicate samples should be put inside the folder "reports_kraken2"
 
-**Example: (for pools)**<br />
-A 230493 <br />
-B 1234932 <br />
-H 2839302 <br />
-It will extract the letter (the first character).<br /> <br />
-**Example: (for replicates)**<br />
-A1_S1 3209246 <br />
-D2_S11 1404672 <br />
-F3_S18 1615053 <br />
-It will extract the sample code (the first two characters).<br /> <br />
 
-***Note:*** **If for some reason the sequencer outputted fastq/fastq.gz files with the wrong labels, (if the sample names are wrong) and you wish to swap them according to a specific correspondence, please fill a file called "correspondence.txt" with the following format**:
-original_sample_code desired_sample_code<br />
-**Example:**<br />
-A1_S1 C2_S3<br />
-D2_S11 F1_S9<br />
-F3_S18 H9_S5<br />
+#### 5 - Run the python script in commandline:
+Example
+```bash
+python script_name_to_decide.py --update_ncbi True --filter_warnings True --tax_levels ['superkingdom', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'] --phage_hosts ['bacteria', 'archaea']
+```
 
-### 4.1 Create 2 folders for each type of samples (pools and replicates):
-#### &ensp; 4.1.1 Folder called "pool_results"
-#### &ensp; 4.1.2 Folder called "rep_results"
-Place the "pool_samples_reads.txt" and "rep_samples_reads.txt" files their correspondent folders.
-    
-### 4.2 Create 4 subfolders inside each of the previous folders:
-#### &ensp; 4.2.1 Folder called "reports_czid"
-#### &ensp; 4.2.2 Folder called "reports_insaflu"
-#### &ensp; 4.2.3 Folder called "reports_gd"
-#### &ensp; 4.2.4 Folder called "reports_kraken2"<br /><br />
-**Note:** You should now have 2 folders, "pool_results" and "rep_results", each with 4 folders inside, one for each software, as
-described in the previous point (4.2) and the "x_samples_reads.txt" file.<br /><br />
-    
-    
-If you followed all the steps so far, your analysis folder should look like this:
-- script.py
+### 6 - If you followed all the steps so far, your analysis folder should look like:
+- fastq.gz
+- main
 - pool_results
 - rep_results
-- filtering_phages
+- utils
+- metadata_table.xlsx
 
-### 6. Run the script<br />
-### 7. After you've ran the script, 2 files will be created:
-- all_but_phage_reps_and_pools_for_R.xlsx
-- viral_percent_across_workflow_reps_and_pools.xlsx
+### 7 - After you've ran the script, 2 files will be created:
+- script_results
+- latest_virus_taxonomy.xlsx
 
-So after you run the script, the analysis folder should be the following:
-- from_start_to_finish_all_reports_to_ready_for_heatmap.py
-- all_but_phage_reps_and_pools_for_R.xlsx
-- viral_percent_across_workflow_reps_and_pools.xlsx
+
+### 8 - The analysis folder should look like:
+- fastq.gz
+- main
 - pool_results
 - rep_results
-- filtering_phages
+- script_results
+- utils
+- latest_virus_taxonomy.xlsx
+- metadata_table.xlsx
 
 
-### 8. Go to the GitHub repository and download the R script file with all the code to produce heatmaps (creating_heatmaps_for_phage_and_all_but_phage.R) You will have to install all the packages needed.
-
-After you run the R script, a file called "all_but_phage_families_pools_and_reps.jpeg" will be created.
-
-In the end, the analysis folder should contain all of the following files:
-- from_start_to_finish_all_reports_to_ready_for_heatmap.py
-- all_but_phage_families_pools_and_reps.jpeg
-- all_but_phage_reps_and_pools_for_R.xlsx
-- viral_percent_across_workflow_reps_and_pools.xlsx
-- pool_results
-- rep_results
-- filtering_phages
