@@ -106,8 +106,8 @@ python script_name_to_decide.py --update_ncbi True --filter_warnings True --tax_
 - main
 - pool_results
 - rep_results
-- script_results (new)
-- latest_virus_taxonomy.xlsx (new)
+- script_results (**new**)
+- latest_virus_taxonomy.xlsx (**new**)
 - metadata_table.xlsx
 
 
