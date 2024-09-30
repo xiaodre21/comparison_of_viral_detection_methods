@@ -99,7 +99,6 @@ python script_name_to_decide.py --update_ncbi True --filter_warnings True --tax_
 - main
 - pool_results
 - rep_results
-- utils
 - metadata_table.xlsx
 
 ### 7 - After you've ran the script the analysis folder should look like:
@@ -108,7 +107,6 @@ python script_name_to_decide.py --update_ncbi True --filter_warnings True --tax_
 - pool_results
 - rep_results
 - script_results (new)
-- utils
 - latest_virus_taxonomy.xlsx (new)
 - metadata_table.xlsx
 
